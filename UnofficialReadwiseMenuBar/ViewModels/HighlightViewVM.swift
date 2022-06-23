@@ -11,12 +11,28 @@ class HighlightViewVM: ObservableObject {
     
     @Published private var auth_status_code: Int?
     @Published private var hightlight_list: HighlightListModel?
+    @Published private var books_list: BooksListModel?
+    
+    var currentHighlightItem : HighlightItemModel?
     
     var highlighted_text: String {
-        guard let p = hightlight_list?.results.randomElement()?.text else {
+        guard let item = hightlight_list?.results.randomElement() else {
             return "N/A"
         }
-        return p
+        
+        currentHighlightItem = item
+        return item.text
+    }
+    
+    var author_name: String {
+        guard let currentHighlightItem = currentHighlightItem else {
+            return "N/A"
+        }
+        
+        if let bookId = currentHighlightItem.book_id {
+            return getBookAuthor(bookId: bookId)
+        }
+        return "N/A"
     }
     
     
@@ -38,17 +54,50 @@ class HighlightViewVM: ObservableObject {
         }
     }
     
-    func getHighlightList(token: String)
+    func getHighlightList(token: String, completion: @escaping() -> Void)
     {
         ReadwiseAPI().getHighlightsList(token: token) { result in
             switch result {
             case .success(let p):
                 DispatchQueue.main.async {
+                    print("\(#function) ok")
                     self.hightlight_list = p
+                    completion()
                 }
             case .failure(_ ):
                 print("error")
             }
+        }
+    }
+    
+    func getBooksList(token: String, completion: @escaping() -> Void)
+    {
+        ReadwiseAPI().getBooksList(token: token) { result in
+            switch result {
+            case .success(let models):
+                DispatchQueue.main.async {
+                    print("\(#function) ok")
+                    self.books_list = models
+                    completion()
+                }
+            case .failure(_ ):
+                print("\(#function) error")
+            }
+        }
+    }
+    
+    func getBookAuthor(bookId: Int64) -> String
+    {
+        guard let books_list = books_list else {
+            return "N/A"
+        }
+        
+        let filtered = books_list.results.filter { $0.id == bookId }
+        if (filtered.isEmpty)
+        {
+            return "N/A"
+        } else {
+            return filtered.first?.author ?? "N/A"
         }
     }
 }

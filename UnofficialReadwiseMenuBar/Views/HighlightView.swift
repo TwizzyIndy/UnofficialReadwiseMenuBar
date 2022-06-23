@@ -9,18 +9,28 @@ import SwiftUI
 
 struct HighlightView: View {
     @ObservedObject private var highlightVM = HighlightViewVM()
+    
     @State private var highlight_text = "N/A"
+    @State private var author = "N/A"
     
     var body: some View {
         VStack {
             Text(highlight_text)
+            Text(author)
             
             Button("Refresh", action: {
                 highlight_text = self.highlightVM.highlighted_text
+                author = self.highlightVM.author_name
             })
         }
         .onAppear() {
-            self.highlightVM.getHighlightList(token: "jJ1ZJ0TaO6eqEtHc8ZGo2i1LhkiaujtDlu4hk3cGZiUjufQdxz")
+            self.highlightVM.getHighlightList(token: "jJ1ZJ0TaO6eqEtHc8ZGo2i1LhkiaujtDlu4hk3cGZiUjufQdxz") {
+                self.highlightVM.getBooksList(token: "jJ1ZJ0TaO6eqEtHc8ZGo2i1LhkiaujtDlu4hk3cGZiUjufQdxz") {
+                    highlight_text = self.highlightVM.highlighted_text
+                    author = self.highlightVM.author_name
+                }
+            }
+            
         }
         .frame(width: 300, height: 300, alignment: .center)
     }
