@@ -99,6 +99,29 @@ class ReadwiseAPI {
             }
         }.resume()
     }
+    
+    func getBooksList(token: String, completion: @escaping(Result<BooksListModel, ResponseError>) -> Void)
+    {
+        guard let bookDetailUrl = URL(string: "https://readwise.io/api/v2/books/") else { return completion(.failure(.BadURL)) }
+        
+        var request = URLRequest(url:bookDetailUrl)
+        request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("error in \(#function)")
+                return completion(.failure(.Error))
+            }
+            
+            if let data = data {
+                let booksList = try? JSONDecoder().decode(BooksListModel.self, from: data)
+                
+                if let booksList = booksList {
+                    completion(.success(booksList))
+                } else {
+                    completion(.failure(.DecodingError))
+                }
+            }
         }.resume()
     }
 }
