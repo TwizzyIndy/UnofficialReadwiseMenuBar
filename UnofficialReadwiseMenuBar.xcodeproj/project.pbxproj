@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6A636B22864880800ED980C /* BooksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A636B12864880800ED980C /* BooksListModel.swift */; };
+		B6A636B32864880800ED980C /* BooksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A636B12864880800ED980C /* BooksListModel.swift */; };
 		B6CF9232286464B7009F9E51 /* ReadwiseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */; };
 		B6CF923828646869009F9E51 /* HighlightListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF923728646869009F9E51 /* HighlightListModel.swift */; };
 		B6CF923928646869009F9E51 /* HighlightListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF923728646869009F9E51 /* HighlightListModel.swift */; };
@@ -45,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6A636B12864880800ED980C /* BooksListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListModel.swift; sourceTree = "<group>"; };
 		B6CF923728646869009F9E51 /* HighlightListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightListModel.swift; sourceTree = "<group>"; };
 		B6D7F45D28644232005C3994 /* UnofficialReadwiseMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnofficialReadwiseMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D7F46028644232005C3994 /* UnofficialReadwiseMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnofficialReadwiseMenuBarApp.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B6CF923728646869009F9E51 /* HighlightListModel.swift */,
+				B6A636B12864880800ED980C /* BooksListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +332,7 @@
 			files = (
 				B6D7F491286444BC005C3994 /* MainMenu.swift in Sources */,
 				B6D7F46D28644233005C3994 /* UnofficialReadwiseMenuBar.xcdatamodeld in Sources */,
+				B6A636B22864880800ED980C /* BooksListModel.swift in Sources */,
 				B6D7F49B28644726005C3994 /* ReadwiseAPI.swift in Sources */,
 				B6D7F46A28644233005C3994 /* Persistence.swift in Sources */,
 				B6D7F49728644696005C3994 /* HighlightViewVM.swift in Sources */,
@@ -346,6 +351,7 @@
 				B6CF923928646869009F9E51 /* HighlightListModel.swift in Sources */,
 				B6D7F4A3286451A3005C3994 /* ReadwiseAPI_Tests.swift in Sources */,
 				B6CF9232286464B7009F9E51 /* ReadwiseAPI.swift in Sources */,
+				B6A636B32864880800ED980C /* BooksListModel.swift in Sources */,
 				B6D7F47828644233005C3994 /* UnofficialReadwiseMenuBarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
