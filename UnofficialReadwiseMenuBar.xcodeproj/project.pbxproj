@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6CF9232286464B7009F9E51 /* ReadwiseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */; };
+		B6CF923828646869009F9E51 /* HighlightListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF923728646869009F9E51 /* HighlightListModel.swift */; };
+		B6CF923928646869009F9E51 /* HighlightListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF923728646869009F9E51 /* HighlightListModel.swift */; };
 		B6D7F46128644232005C3994 /* UnofficialReadwiseMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F46028644232005C3994 /* UnofficialReadwiseMenuBarApp.swift */; };
 		B6D7F46328644232005C3994 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F46228644232005C3994 /* ContentView.swift */; };
 		B6D7F46528644233005C3994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D7F46428644233005C3994 /* Assets.xcassets */; };
@@ -16,6 +19,12 @@
 		B6D7F47828644233005C3994 /* UnofficialReadwiseMenuBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F47728644233005C3994 /* UnofficialReadwiseMenuBarTests.swift */; };
 		B6D7F48228644233005C3994 /* UnofficialReadwiseMenuBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F48128644233005C3994 /* UnofficialReadwiseMenuBarUITests.swift */; };
 		B6D7F48428644233005C3994 /* UnofficialReadwiseMenuBarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F48328644233005C3994 /* UnofficialReadwiseMenuBarUITestsLaunchTests.swift */; };
+		B6D7F491286444BC005C3994 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F490286444BC005C3994 /* MainMenu.swift */; };
+		B6D7F4942864462E005C3994 /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F4932864462E005C3994 /* HighlightView.swift */; };
+		B6D7F49728644696005C3994 /* HighlightViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49628644696005C3994 /* HighlightViewVM.swift */; };
+		B6D7F49828644696005C3994 /* HighlightViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49628644696005C3994 /* HighlightViewVM.swift */; };
+		B6D7F49B28644726005C3994 /* ReadwiseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */; };
+		B6D7F4A3286451A3005C3994 /* ReadwiseAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F4A1286451A3005C3994 /* ReadwiseAPI_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6CF923728646869009F9E51 /* HighlightListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightListModel.swift; sourceTree = "<group>"; };
 		B6D7F45D28644232005C3994 /* UnofficialReadwiseMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnofficialReadwiseMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D7F46028644232005C3994 /* UnofficialReadwiseMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnofficialReadwiseMenuBarApp.swift; sourceTree = "<group>"; };
 		B6D7F46228644232005C3994 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +59,11 @@
 		B6D7F47D28644233005C3994 /* UnofficialReadwiseMenuBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnofficialReadwiseMenuBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D7F48128644233005C3994 /* UnofficialReadwiseMenuBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnofficialReadwiseMenuBarUITests.swift; sourceTree = "<group>"; };
 		B6D7F48328644233005C3994 /* UnofficialReadwiseMenuBarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnofficialReadwiseMenuBarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B6D7F490286444BC005C3994 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		B6D7F4932864462E005C3994 /* HighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
+		B6D7F49628644696005C3994 /* HighlightViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightViewVM.swift; sourceTree = "<group>"; };
+		B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadwiseAPI.swift; sourceTree = "<group>"; };
+		B6D7F4A1286451A3005C3994 /* ReadwiseAPI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadwiseAPI_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6CF923628646853009F9E51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6CF923728646869009F9E51 /* HighlightListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B6D7F45428644232005C3994 = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +122,14 @@
 		B6D7F45F28644232005C3994 /* UnofficialReadwiseMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				B6CF923628646853009F9E51 /* Models */,
+				B6D7F49D28644D9B005C3994 /* Extensions */,
+				B6D7F49928644701005C3994 /* Service */,
+				B6D7F49528644675005C3994 /* ViewModels */,
+				B6D7F492286445F9005C3994 /* Views */,
 				B6D7F46028644232005C3994 /* UnofficialReadwiseMenuBarApp.swift */,
 				B6D7F46228644232005C3994 /* ContentView.swift */,
+				B6D7F490286444BC005C3994 /* MainMenu.swift */,
 				B6D7F46428644233005C3994 /* Assets.xcassets */,
 				B6D7F46928644233005C3994 /* Persistence.swift */,
 				B6D7F46E28644233005C3994 /* UnofficialReadwiseMenuBar.entitlements */,
@@ -122,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D7F47728644233005C3994 /* UnofficialReadwiseMenuBarTests.swift */,
+				B6D7F4A1286451A3005C3994 /* ReadwiseAPI_Tests.swift */,
 			);
 			path = UnofficialReadwiseMenuBarTests;
 			sourceTree = "<group>";
@@ -133,6 +163,37 @@
 				B6D7F48328644233005C3994 /* UnofficialReadwiseMenuBarUITestsLaunchTests.swift */,
 			);
 			path = UnofficialReadwiseMenuBarUITests;
+			sourceTree = "<group>";
+		};
+		B6D7F492286445F9005C3994 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6D7F4932864462E005C3994 /* HighlightView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6D7F49528644675005C3994 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B6D7F49628644696005C3994 /* HighlightViewVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B6D7F49928644701005C3994 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B6D7F49D28644D9B005C3994 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D7F491286444BC005C3994 /* MainMenu.swift in Sources */,
 				B6D7F46D28644233005C3994 /* UnofficialReadwiseMenuBar.xcdatamodeld in Sources */,
+				B6D7F49B28644726005C3994 /* ReadwiseAPI.swift in Sources */,
 				B6D7F46A28644233005C3994 /* Persistence.swift in Sources */,
+				B6D7F49728644696005C3994 /* HighlightViewVM.swift in Sources */,
+				B6D7F4942864462E005C3994 /* HighlightView.swift in Sources */,
 				B6D7F46328644232005C3994 /* ContentView.swift in Sources */,
 				B6D7F46128644232005C3994 /* UnofficialReadwiseMenuBarApp.swift in Sources */,
+				B6CF923828646869009F9E51 /* HighlightListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +342,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D7F49828644696005C3994 /* HighlightViewVM.swift in Sources */,
+				B6CF923928646869009F9E51 /* HighlightListModel.swift in Sources */,
+				B6D7F4A3286451A3005C3994 /* ReadwiseAPI_Tests.swift in Sources */,
+				B6CF9232286464B7009F9E51 /* ReadwiseAPI.swift in Sources */,
 				B6D7F47828644233005C3994 /* UnofficialReadwiseMenuBarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
