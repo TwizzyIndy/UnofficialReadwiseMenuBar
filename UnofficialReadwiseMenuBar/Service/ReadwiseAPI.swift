@@ -45,6 +45,10 @@ class ReadwiseAPI {
         }.resume()
     }
     
+    /// Get highlighted list from Readwise API
+    /// - Parameters:
+    ///   - token: the generated user's token
+    ///   - completion: the completion handler
     func getHighlightsList(token: String, completion: @escaping(Result<HighlightListModel?, ResponseError>) -> Void)
     {
         guard let highlightListUrl = URL(string: "https://readwise.io/api/v2/highlights/") else { return completion(.failure(.BadURL)) }
