@@ -35,6 +35,7 @@ struct HighlightView: View {
             author = self.highlightVM.author_name
         }
         .frame(width: 400, height: 200, alignment: .center)
+        .cornerRadius(12.0)
         )
     }
     
