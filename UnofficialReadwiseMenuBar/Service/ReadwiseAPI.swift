@@ -124,4 +124,36 @@ class ReadwiseAPI {
             }
         }.resume()
     }
+    
+    func getHighlightsList(token: String) async throws -> HighlightListModel {
+        guard let highlightListUrl = URL(string: "https://readwise.io/api/v2/highlights/") else { throw ResponseError.BadURL }
+        
+        var request = URLRequest(url:highlightListUrl)
+        request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            throw ResponseError.Error
+        }
+        
+        return try JSONDecoder().decode(HighlightListModel.self, from: data)
+    }
+    
+    func getBooksList(token: String) async throws -> BooksListModel {
+        guard let bookDetailUrl = URL(string: "https://readwise.io/api/v2/books/") else { throw ResponseError.BadURL }
+        
+        var request = URLRequest(url:bookDetailUrl)
+        request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            throw ResponseError.Error
+        }
+        
+        return try JSONDecoder().decode(BooksListModel.self, from: data)
+    }
 }

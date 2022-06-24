@@ -86,6 +86,30 @@ class HighlightViewVM: ObservableObject {
         }
     }
     
+    func fetchHighlightList(token: String) async {
+        do {
+            let highlightList = try await ReadwiseAPI().getHighlightsList(token: token)
+            DispatchQueue.main.async {
+                self.hightlight_list = highlightList
+                print("\(#function) ok")
+            }
+        } catch {
+            print("\(#function) error")
+        }
+    }
+    
+    func fetchBooksList(token: String) async {
+        do {
+            let booksList = try await ReadwiseAPI().getBooksList(token: token)
+            DispatchQueue.main.async {
+                self.books_list = booksList
+                print("\(#function) ok")
+            }
+        } catch {
+            print("\(#function) error")
+        }
+    }
+    
     func getBookAuthor(bookId: Int64) -> String
     {
         guard let books_list = books_list else {
