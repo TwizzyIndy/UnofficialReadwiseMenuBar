@@ -14,6 +14,9 @@ struct HighlightView: View {
     @State private var author = "N/A"
     
     var body: some View {
+        RadialGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .topLeading, startRadius: 100, endRadius: 200)
+            .ignoresSafeArea()
+            .overlay(
         VStack {
             Text(highlight_text)
             Text(author)
@@ -31,7 +34,7 @@ struct HighlightView: View {
             highlight_text = self.highlightVM.highlighted_text
             author = self.highlightVM.author_name
         }
-        .frame(width: 300, height: 300, alignment: .center)
+        )
     }
     
     
