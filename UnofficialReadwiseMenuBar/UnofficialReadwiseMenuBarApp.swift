@@ -29,11 +29,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let menu = MainMenu()
     
+    private var popOver: NSPopover!
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         AppDelegate.instance = self
         
         statusBarItem.button?.image = NSImage(systemSymbolName: "star.fill", accessibilityDescription: nil)
         statusBarItem.button?.imagePosition = .imageLeading
-        statusBarItem.menu = menu.build()
+        // statusBarItem.menu = menu.build()
+        statusBarItem.button?.action = #selector(togglePopOver)
+        
+        // set up popover
+        self.popOver = NSPopover()
+        self.popOver.contentSize = NSSize(width: 300, height: 300)
+        self.popOver.behavior = .transient
+        self.popOver.contentViewController = NSHostingController(rootView: HighlightView())
+    }
+    
+    @objc func togglePopOver() {
+        
+        if let button = statusBarItem.button {
+            if popOver.isShown {
+                self.popOver.performClose(nil)
+            } else {
+                self.popOver.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+            }
+        }
     }
 }
