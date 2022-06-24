@@ -41,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // set up popover
         self.popOver = NSPopover()
-        self.popOver.contentSize = NSSize(width: 300, height: 300)
+        self.popOver.contentSize = NSSize(width: 400, height: 200)
         self.popOver.behavior = .transient
         self.popOver.contentViewController = NSHostingController(rootView: HighlightView())
     }

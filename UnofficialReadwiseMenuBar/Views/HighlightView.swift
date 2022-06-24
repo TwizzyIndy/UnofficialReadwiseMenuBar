@@ -34,6 +34,7 @@ struct HighlightView: View {
             highlight_text = self.highlightVM.highlighted_text
             author = self.highlightVM.author_name
         }
+        .frame(width: 400, height: 200, alignment: .center)
         )
     }
     
