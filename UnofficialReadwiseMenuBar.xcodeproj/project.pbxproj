@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B61F36982868317F009B76E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F36972868317F009B76E1 /* SettingsView.swift */; };
 		B61F369A28683252009B76E1 /* ReadwiseConfigSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F369928683252009B76E1 /* ReadwiseConfigSettingView.swift */; };
+		B643F5D428683EA300E37479 /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643F5D328683EA300E37479 /* StorageKeys.swift */; };
 		B6A636B22864880800ED980C /* BooksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A636B12864880800ED980C /* BooksListModel.swift */; };
 		B6A636B32864880800ED980C /* BooksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A636B12864880800ED980C /* BooksListModel.swift */; };
 		B6CF9232286464B7009F9E51 /* ReadwiseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		B61F36972868317F009B76E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B61F369928683252009B76E1 /* ReadwiseConfigSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadwiseConfigSettingView.swift; sourceTree = "<group>"; };
+		B643F5D328683EA300E37479 /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
 		B6A636B12864880800ED980C /* BooksListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListModel.swift; sourceTree = "<group>"; };
 		B6CF923728646869009F9E51 /* HighlightListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightListModel.swift; sourceTree = "<group>"; };
 		B6D7F45D28644232005C3994 /* UnofficialReadwiseMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnofficialReadwiseMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			children = (
 				B6CF923728646869009F9E51 /* HighlightListModel.swift */,
 				B6A636B12864880800ED980C /* BooksListModel.swift */,
+				B643F5D328683EA300E37479 /* StorageKeys.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B643F5D428683EA300E37479 /* StorageKeys.swift in Sources */,
 				B6D7F491286444BC005C3994 /* MainMenu.swift in Sources */,
 				B6D7F46D28644233005C3994 /* UnofficialReadwiseMenuBar.xcdatamodeld in Sources */,
 				B6A636B22864880800ED980C /* BooksListModel.swift in Sources */,
