@@ -24,6 +24,12 @@ struct HighlightView: View {
             .overlay(
         VStack {
             Text(highlight_text)
+                .italic()
+                .font(.custom("Georgia", size: 14.0))
+                .padding()
+                .multilineTextAlignment(.center)
+
+            
             HStack {
                 Text(author)
                     .bold()
