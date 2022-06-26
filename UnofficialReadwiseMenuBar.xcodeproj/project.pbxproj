@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61F36982868317F009B76E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F36972868317F009B76E1 /* SettingsView.swift */; };
+		B61F369A28683252009B76E1 /* ReadwiseConfigSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F369928683252009B76E1 /* ReadwiseConfigSettingView.swift */; };
 		B6A636B22864880800ED980C /* BooksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A636B12864880800ED980C /* BooksListModel.swift */; };
 		B6A636B32864880800ED980C /* BooksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A636B12864880800ED980C /* BooksListModel.swift */; };
 		B6CF9232286464B7009F9E51 /* ReadwiseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B61F36972868317F009B76E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B61F369928683252009B76E1 /* ReadwiseConfigSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadwiseConfigSettingView.swift; sourceTree = "<group>"; };
 		B6A636B12864880800ED980C /* BooksListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListModel.swift; sourceTree = "<group>"; };
 		B6CF923728646869009F9E51 /* HighlightListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightListModel.swift; sourceTree = "<group>"; };
 		B6D7F45D28644232005C3994 /* UnofficialReadwiseMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnofficialReadwiseMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				B6D7F4932864462E005C3994 /* HighlightView.swift */,
+				B61F36972868317F009B76E1 /* SettingsView.swift */,
+				B61F369928683252009B76E1 /* ReadwiseConfigSettingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,11 +341,13 @@
 				B6A636B22864880800ED980C /* BooksListModel.swift in Sources */,
 				B6D7F49B28644726005C3994 /* ReadwiseAPI.swift in Sources */,
 				B6D7F46A28644233005C3994 /* Persistence.swift in Sources */,
+				B61F369A28683252009B76E1 /* ReadwiseConfigSettingView.swift in Sources */,
 				B6D7F49728644696005C3994 /* HighlightViewVM.swift in Sources */,
 				B6D7F4942864462E005C3994 /* HighlightView.swift in Sources */,
 				B6D7F46328644232005C3994 /* ContentView.swift in Sources */,
 				B6D7F46128644232005C3994 /* UnofficialReadwiseMenuBarApp.swift in Sources */,
 				B6CF923828646869009F9E51 /* HighlightListModel.swift in Sources */,
+				B61F36982868317F009B76E1 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
