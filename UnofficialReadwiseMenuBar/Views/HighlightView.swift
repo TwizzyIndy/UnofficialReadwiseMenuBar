@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HighlightView: View {
+    
+    //MARK: - View Model
     @ObservedObject private var highlightVM = HighlightViewVM()
     
+    //MARK: - UI States
     @State private var highlight_text = "N/A"
     @State private var author = "N/A"
     @State private var bookTitle = "N/A"
