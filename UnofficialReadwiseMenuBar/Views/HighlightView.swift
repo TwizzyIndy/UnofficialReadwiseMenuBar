@@ -14,6 +14,11 @@ struct HighlightView: View {
     @State private var author = "N/A"
     @State private var bookTitle = "N/A"
     
+    //MARK: - AppStorage Keys
+    @AppStorage(StorageKeys.api_key.rawValue) private var appStorageAPIKey: String = ""
+    
+    @AppStorage(StorageKeys.key_validated.rawValue) private var appStorageKeyValidated: Bool = false
+    
     var body: some View {
         Image("highlight_background")
             .overlay(
@@ -34,8 +39,8 @@ struct HighlightView: View {
         }
         .onAppear()
         .task {
-            await self.highlightVM.fetchHighlightList(token: "jJ1ZJ0TaO6eqEtHc8ZGo2i1LhkiaujtDlu4hk3cGZiUjufQdxz")
-            await self.highlightVM.fetchBooksList(token: "jJ1ZJ0TaO6eqEtHc8ZGo2i1LhkiaujtDlu4hk3cGZiUjufQdxz")
+            await self.highlightVM.fetchHighlightList(token: appStorageAPIKey)
+            await self.highlightVM.fetchBooksList(token: appStorageAPIKey)
             
             highlight_text = self.highlightVM.highlighted_text
             author = self.highlightVM.author_name
