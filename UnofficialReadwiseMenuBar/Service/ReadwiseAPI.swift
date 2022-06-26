@@ -156,4 +156,20 @@ class ReadwiseAPI {
         
         return try JSONDecoder().decode(BooksListModel.self, from: data)
     }
+    
+    func checkToken(token: String) async throws -> Int {
+        guard let authUrl = URL(string: "https://readwise.io/api/v2/auth/") else { throw ResponseError.BadURL }
+        
+        var request = URLRequest(url:authUrl)
+        request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (_, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 204 else {
+                  throw AuthError.TokenInvalid
+              }
+        
+        return 0
+    }
 }
