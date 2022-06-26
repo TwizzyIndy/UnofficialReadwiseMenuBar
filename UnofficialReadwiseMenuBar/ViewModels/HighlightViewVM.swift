@@ -35,6 +35,17 @@ class HighlightViewVM: ObservableObject {
         return "N/A"
     }
     
+    var book_title: String {
+        guard let currentHighlightItem = currentHighlightItem else {
+            return "N/A"
+        }
+        
+        if let bookId = currentHighlightItem.book_id {
+            return getBookTitle(bookId: bookId)
+        }
+        return "N/A"
+    }
+    
     
     func checkToken(token: String) {
         ReadwiseAPI().checkToken(token: token) { result in
@@ -122,6 +133,21 @@ class HighlightViewVM: ObservableObject {
             return "N/A"
         } else {
             return filtered.first?.author ?? "N/A"
+        }
+    }
+    
+    func getBookTitle(bookId: Int64) -> String
+    {
+        guard let books_list = books_list else {
+            return "N/A"
+        }
+        
+        let filtered = books_list.results.filter { $0.id == bookId }
+        if (filtered.isEmpty)
+        {
+            return "N/A"
+        } else {
+            return filtered.first?.title ?? "N/A"
         }
     }
 }

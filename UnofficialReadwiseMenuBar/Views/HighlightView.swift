@@ -12,17 +12,24 @@ struct HighlightView: View {
     
     @State private var highlight_text = "N/A"
     @State private var author = "N/A"
+    @State private var bookTitle = "N/A"
     
     var body: some View {
         Image("highlight_background")
             .overlay(
         VStack {
             Text(highlight_text)
-            Text(author)
+            HStack {
+                Text(author)
+                    .bold()
+                
+                Text("—— from " + bookTitle)
+            }
             
             Button("Refresh", action: {
                 highlight_text = self.highlightVM.highlighted_text
                 author = self.highlightVM.author_name
+                bookTitle = self.highlightVM.book_title
             })
         }
         .onAppear()
@@ -32,6 +39,7 @@ struct HighlightView: View {
             
             highlight_text = self.highlightVM.highlighted_text
             author = self.highlightVM.author_name
+            bookTitle = self.highlightVM.book_title
         }
         .frame(width: 400, height: 200, alignment: .center)
         .cornerRadius(12.0)
