@@ -23,7 +23,10 @@ struct HighlightView: View {
     @AppStorage(StorageKeys.key_validated.rawValue) private var appStorageKeyValidated: Bool = false
     
     var body: some View {
-        Image("highlight_background")
+        RadialGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .topLeading, startRadius: 100, endRadius: 200)
+            .ignoresSafeArea()
+            .overlay(
+        Image("highlight_transparent_background")
             .overlay(
         VStack {
             Text(highlight_text)
@@ -57,6 +60,7 @@ struct HighlightView: View {
         }
         .frame(width: 400, height: 200, alignment: .center)
         .cornerRadius(12.0)
+        )
         )
     }
     
