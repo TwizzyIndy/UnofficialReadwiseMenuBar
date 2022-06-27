@@ -44,11 +44,26 @@ struct HighlightView: View {
                                 Text("—— from " + bookTitle)
                             }
                             
-                            Button("Refresh", action: {
-                                highlight_text = self.highlightVM.highlighted_text
-                                author = self.highlightVM.author_name
-                                bookTitle = self.highlightVM.book_title
-                            })
+                            HStack {
+                                Button("⬅️", action: {
+                                    print("prev")
+                                })
+                                .buttonStyle(.borderless)
+                                .frame(width: 50, height: 50, alignment: .center)
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    highlight_text = self.highlightVM.highlighted_text
+                                    author = self.highlightVM.author_name
+                                    bookTitle = self.highlightVM.book_title
+                                    
+                                }, label: {
+                                    Text(" ")
+                                })
+                                .buttonStyle(.borderless)
+                                .frame(width: 50, height: 50, alignment: .center)
+                            }
                         }
                             .onAppear()
                             .task {
