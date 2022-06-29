@@ -22,8 +22,11 @@ struct HighlightView: View {
     
     @AppStorage(StorageKeys.key_validated.rawValue) private var appStorageKeyValidated: Bool = false
     
+    private let backgroundColor = Color(hex: 0xDAC2FF, alpha: 1.0)
+    private let textColor = Color(hex: 0x975EEF, alpha: 1.0)
+    
     var body: some View {
-        RadialGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .topLeading, startRadius: 100, endRadius: 200)
+        RadialGradient(gradient: Gradient(colors: [.white, backgroundColor]), center: .topLeading, startRadius: 20, endRadius: 70)
             .ignoresSafeArea()
             .overlay(
                 Image("highlight_transparent_background")
@@ -35,13 +38,16 @@ struct HighlightView: View {
                                     .font(.custom("Georgia", size: 14.0))
                                     .padding()
                                     .multilineTextAlignment(.center)
+                                    .foregroundColor(textColor)
                             }
                             
                             HStack {
                                 Text(author)
                                     .bold()
+                                    .foregroundColor(textColor)
                                 
                                 Text("—— from " + bookTitle)
+                                    .foregroundColor(textColor)
                             }
                             
                             HStack {
