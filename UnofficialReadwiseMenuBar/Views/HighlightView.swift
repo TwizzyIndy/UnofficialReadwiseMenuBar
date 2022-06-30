@@ -22,6 +22,7 @@ struct HighlightView: View {
     @State private var author = "N/A"
     @State private var bookTitle = "N/A"
     @State private var highlight_list_iter : IndexingIterator<FetchedResults<HighlightItemDataModel>>?
+    @State private var currentHighlightIndex = 0
 
     
     //MARK: - AppStorage Keys
@@ -84,11 +85,27 @@ struct HighlightView: View {
                             }
                             
                             HStack {
-                                Button("⬅️", action: {
-                                    print("prev")
+                                Button("<", action: {                                    
+                                    if (!self.highlight_list_db.isEmpty)
+                                    {
+                                        if (self.currentHighlightIndex == 0 )
+                                        {
+                                            return
+                                        }
+                                        
+                                        let prevItem = self.highlight_list_db[self.currentHighlightIndex - 1]
+                                        
+                                        highlight_text = prevItem.text ?? "N/A"
+                                        author = "N/A"
+                                        bookTitle = "N/A"
+                                        
+                                        self.currentHighlightIndex -= 1
+                                        return
+                                    }
                                 })
-                                .buttonStyle(.borderless)
+                                .buttonStyle(.plain)
                                 .frame(width: 50, height: 50, alignment: .center)
+                                .foregroundColor(.purple)
                                 
                                 Spacer()
                                 
@@ -100,6 +117,12 @@ struct HighlightView: View {
                                         print("db is not empty")
                                         
                                         if let highlightItem = self.highlight_list_iter?.next() {
+                                            
+                                            // get current index
+                                            if let currentHighlightIndex = self.highlight_list_db.firstIndex(of: highlightItem) {
+                                                self.currentHighlightIndex = currentHighlightIndex
+                                            }
+                                            
                                             highlight_text = highlightItem.text ?? "N/A"
                                             author = "N/A"
                                             bookTitle = "N/A"
@@ -129,6 +152,12 @@ struct HighlightView: View {
                                     self.highlight_list_iter = self.highlight_list_db.makeIterator()
                                     
                                     if let highlightItem = self.highlight_list_iter?.next() {
+                                        
+                                        // get current index
+                                        if let currentHighlightIndex = self.highlight_list_db.firstIndex(of: highlightItem) {
+                                            self.currentHighlightIndex = currentHighlightIndex
+                                        }
+                                        
                                         highlight_text = highlightItem.text ?? "N/A"
                                         
                                         // TODO: need to parse author and bookTitle
