@@ -14,9 +14,23 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        
         for _ in 0..<10 {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            
+            // for highlight items preview
+            let newHighlightItem = HighlightItemDataModel(context: viewContext)
+            newHighlightItem.id = 34534
+            newHighlightItem.book_id = 234
+            newHighlightItem.highlighted_at = "2234"
+            newHighlightItem.location_type = "location"
+            newHighlightItem.note = ""
+            newHighlightItem.tags = nil
+            newHighlightItem.color = ""
+            newHighlightItem.text = "The goal of this book is to change your perception about wealth and money. Believe that retirement at any age is possible. Believe that old age is not a prerequisite to wealth. Believe that a job is just as risky as a business. Believe that the stock market isn't a guaranteed path to riches. Believe that you can be retired just a few years from today."
+            newHighlightItem.location = 234234
+            newHighlightItem.url = "https://demo.com"
         }
         do {
             try viewContext.save()
@@ -36,6 +50,7 @@ struct PersistenceController {
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
+        print("\(container.persistentStoreDescriptions.first?.url)")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
