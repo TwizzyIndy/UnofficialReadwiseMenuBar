@@ -21,6 +21,8 @@ struct HighlightView: View {
     @State private var highlight_text = "N/A"
     @State private var author = "N/A"
     @State private var bookTitle = "N/A"
+    @State private var highlight_list_iter : IndexingIterator<FetchedResults<HighlightItemDataModel>>?
+
     
     //MARK: - AppStorage Keys
     @AppStorage(StorageKeys.api_key.rawValue) private var appStorageAPIKey: String = ""
@@ -97,11 +99,12 @@ struct HighlightView: View {
                                     {
                                         print("db is not empty")
                                         
-                                        let randomHighlightItem = self.highlight_list_db.randomElement()
-                                        highlight_text = randomHighlightItem?.text ?? "N/A"
-                                        author = "N/A"
-                                        bookTitle = "N/A"
-                                        return
+                                        if let highlightItem = self.highlight_list_iter?.next() {
+                                            highlight_text = highlightItem.text ?? "N/A"
+                                            author = "N/A"
+                                            bookTitle = "N/A"
+                                            return
+                                        }
                                     }
                                     
                                     highlight_text = self.highlightVM.highlighted_text
@@ -123,13 +126,16 @@ struct HighlightView: View {
                                 {
                                     print("db is not empty")
                                     
-                                    let randomHighlightItem = self.highlight_list_db.randomElement()
-                                    highlight_text = randomHighlightItem?.text ?? "N/A"
+                                    self.highlight_list_iter = self.highlight_list_db.makeIterator()
                                     
-                                    // TODO: need to parse author and bookTitle
-                                    author = "N/A"
-                                    bookTitle = "N/A"
-                                    return
+                                    if let highlightItem = self.highlight_list_iter?.next() {
+                                        highlight_text = highlightItem.text ?? "N/A"
+                                        
+                                        // TODO: need to parse author and bookTitle
+                                        author = "N/A"
+                                        bookTitle = "N/A"
+                                        return
+                                    }
                                 }
                                 
                                 // get from API
