@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import CoreData
 
 class HighlightViewVM: ObservableObject {
     
+    //MARK: - Published Objects
     @Published private var auth_status_code: Int?
     @Published private var hightlight_list: HighlightListModel?
     @Published private var books_list: BooksListModel?
+    
+    //MARK: - For Core Data Handling
+    var viewContext : NSManagedObjectContext?
     
     var currentHighlightItem : HighlightItemModel?
     
@@ -46,6 +51,10 @@ class HighlightViewVM: ObservableObject {
         return "N/A"
     }
     
+    // MARK: - Init
+    init(viewContext: NSManagedObjectContext) {
+        self.viewContext = viewContext
+    }
     
     func checkToken(token: String) {
         ReadwiseAPI().checkToken(token: token) { result in
@@ -103,9 +112,61 @@ class HighlightViewVM: ObservableObject {
             DispatchQueue.main.async {
                 self.hightlight_list = highlightList
                 print("\(#function) ok")
+                
+                self.saveHighlightListToDB()
             }
         } catch {
             print("\(#function) error")
+        }
+    }
+    
+    private func saveHighlightListToDB()
+    {
+        // save to CoreData
+        guard let viewContext = self.viewContext,
+        let hightlight_list = self.hightlight_list else {
+            return
+        }
+        
+        hightlight_list.results.forEach({ fetchedItem in
+            
+            // Make FetchRequest from CoreData
+            let request: NSFetchRequest<HighlightItemDataModel> = HighlightItemDataModel.fetchRequest()
+            
+            // only matched result with fetchedItem's id
+            request.predicate = NSPredicate(format: "id == %lld", fetchedItem.id)
+            
+            do {
+                let storedItems = try viewContext.fetch(request)
+                
+                // if already exists
+                if let storeItem = storedItems.first {
+                    //TODO: .. do something here
+                    print("already exists")
+                } else { // if not exists
+                    let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "HighlightItemDataModel", into: viewContext) as! HighlightItemDataModel
+                    itemToSave.id = fetchedItem.id
+                    itemToSave.book_id = fetchedItem.book_id ?? 0
+                    itemToSave.highlighted_at = fetchedItem.highlighted_at ?? ""
+                    itemToSave.location_type = fetchedItem.location_type
+                    itemToSave.note = fetchedItem.note
+                    itemToSave.tags = fetchedItem.tags as NSObject?
+                    itemToSave.color = fetchedItem.color ?? ""
+                    itemToSave.text = fetchedItem.text
+                    itemToSave.location = Int64(fetchedItem.location)
+                    itemToSave.location_type = fetchedItem.location_type
+                    itemToSave.url = fetchedItem.url ?? ""
+                    
+                }
+            } catch {
+                print("failed to fetch highlight items")
+            }
+        })
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("failed to save highlight items to db")
         }
     }
     
