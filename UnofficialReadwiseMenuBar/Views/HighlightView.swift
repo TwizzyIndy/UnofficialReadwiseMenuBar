@@ -11,6 +11,9 @@ struct HighlightView: View {
     //MARK: - Core Data Context
     @Environment(\.managedObjectContext) private var context
     
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \HighlightItemDataModel.highlighted_at, ascending: true)],
+                  animation: .default) var highlight_list_db: FetchedResults<HighlightItemDataModel>
+    
     //MARK: - View Model
     @ObservedObject private var highlightVM : HighlightViewVM
     
@@ -88,6 +91,19 @@ struct HighlightView: View {
                                 Spacer()
                                 
                                 Button(action: {
+                                    
+                                    // get from Core Data first
+                                    if (!self.highlight_list_db.isEmpty)
+                                    {
+                                        print("db is not empty")
+                                        
+                                        let randomHighlightItem = self.highlight_list_db.randomElement()
+                                        highlight_text = randomHighlightItem?.text ?? "N/A"
+                                        author = "N/A"
+                                        bookTitle = "N/A"
+                                        return
+                                    }
+                                    
                                     highlight_text = self.highlightVM.highlighted_text
                                     author = self.highlightVM.author_name
                                     bookTitle = self.highlightVM.book_title
@@ -101,6 +117,22 @@ struct HighlightView: View {
                         }
                             .onAppear()
                             .task {
+                                
+                                // get from Core Data first
+                                if (!self.highlight_list_db.isEmpty)
+                                {
+                                    print("db is not empty")
+                                    
+                                    let randomHighlightItem = self.highlight_list_db.randomElement()
+                                    highlight_text = randomHighlightItem?.text ?? "N/A"
+                                    
+                                    // TODO: need to parse author and bookTitle
+                                    author = "N/A"
+                                    bookTitle = "N/A"
+                                    return
+                                }
+                                
+                                // get from API
                                 await self.highlightVM.fetchHighlightList(token: appStorageAPIKey)
                                 await self.highlightVM.fetchBooksList(token: appStorageAPIKey)
                                 
