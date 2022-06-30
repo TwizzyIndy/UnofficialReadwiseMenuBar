@@ -148,7 +148,7 @@ class HighlightViewVM: ObservableObject {
                     itemToSave.id = fetchedItem.id
                     itemToSave.book_id = fetchedItem.book_id ?? 0
                     itemToSave.highlighted_at = fetchedItem.highlighted_at ?? ""
-                    itemToSave.location_type = fetchedItem.location_type
+                    itemToSave.updated_at = fetchedItem.updated ?? ""
                     itemToSave.note = fetchedItem.note
                     itemToSave.tags = fetchedItem.tags as NSObject?
                     itemToSave.color = fetchedItem.color ?? ""
