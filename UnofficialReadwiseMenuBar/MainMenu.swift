@@ -15,7 +15,7 @@ class MainMenu: NSObject {
     // function called by UnofficialReadwiseMenuBarApp to create the menu
     func build() -> NSMenu {
         
-        let highlightView = HighlightView()
+        let highlightView = HighlightView(context: PersistenceController.preview.container.viewContext)
         let contentView = NSHostingController(rootView: highlightView)
         contentView.view.frame.size = CGSize(width: 300, height: 300)
         

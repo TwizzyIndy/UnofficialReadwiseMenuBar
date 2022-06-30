@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct HighlightView: View {
+    //MARK: - Core Data Context
+    @Environment(\.managedObjectContext) private var context
     
     //MARK: - View Model
-    @ObservedObject private var highlightVM = HighlightViewVM()
+    @ObservedObject private var highlightVM : HighlightViewVM
     
     //MARK: - UI States
     @State private var highlight_text = "N/A"
@@ -24,6 +26,11 @@ struct HighlightView: View {
     
     private let backgroundColor = Color(hex: 0xDAC2FF, alpha: 1.0)
     private let textColor = Color(hex: 0x975EEF, alpha: 1.0)
+    
+    //MARK: - Init
+    init(context: NSManagedObjectContext) {
+        self.highlightVM = HighlightViewVM(viewContext: context)
+    }
     
     var body: some View {
         RadialGradient(gradient: Gradient(colors: [.white, backgroundColor]), center: .topLeading, startRadius: 20, endRadius: 70)
@@ -112,7 +119,7 @@ struct HighlightView: View {
 
 struct HighlightView_Previews: PreviewProvider {
     static var previews: some View {
-        HighlightView()
+        HighlightView(context: PersistenceController.preview.container.viewContext).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 

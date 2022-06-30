@@ -35,6 +35,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private var popOver: NSPopover!
     
+    let persistenceController = PersistenceController.shared
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         AppDelegate.instance = self
         
@@ -47,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popOver = NSPopover()
         self.popOver.contentSize = NSSize(width: 400, height: 200)
         self.popOver.behavior = .transient
-        self.popOver.contentViewController = NSHostingController(rootView: HighlightView())
+        self.popOver.contentViewController = NSHostingController(rootView: HighlightView(context: persistenceController.container.viewContext).environment(\.managedObjectContext, persistenceController.container.viewContext))
     }
     
     @objc func togglePopOver() {
