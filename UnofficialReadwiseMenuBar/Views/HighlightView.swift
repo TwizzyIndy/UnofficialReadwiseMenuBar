@@ -32,6 +32,27 @@ struct HighlightView: View {
                 Image("highlight_transparent_background")
                     .overlay(
                         VStack {
+                            Spacer()
+                            
+                            HStack {
+                                Spacer()
+                                
+                                // settings button
+                                Button(action: {
+                                    // show preferences window
+                                    // https://stackoverflow.com/a/65356627
+                                    NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
+                                    
+                                }, label: {
+                                    Image("ic_settings")
+                                        .resizable()
+                                        .frame(width: 20, height: 20, alignment: .center)
+                                    
+                                })
+                                .buttonStyle(.borderless)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
+                            }
+                            
                             ScrollView(.vertical, showsIndicators: false) {
                                 Text(highlight_text)
                                     .italic()
