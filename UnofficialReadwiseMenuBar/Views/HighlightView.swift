@@ -54,7 +54,17 @@ struct HighlightView: View {
                                 
                                 // force reload button
                                 Button(action: {
-                                    // TODO: reload all highlight here
+                                    // reload all highlight here
+                                    
+                                    Task {
+                                        // get from API
+                                        await self.highlightVM.fetchHighlightList(token: appStorageAPIKey)
+                                        await self.highlightVM.fetchBooksList(token: appStorageAPIKey)
+                                        
+                                        highlight_text = self.highlightVM.highlighted_text
+                                        author = self.highlightVM.author_name
+                                        bookTitle = self.highlightVM.book_title
+                                    }
                                 }, label: {
                                     Image(systemName: "arrow.counterclockwise.circle")
                                         .resizable()
