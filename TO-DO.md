@@ -7,3 +7,5 @@
 - [ ] Make HighlightView background color customizable
 - [ ] Load all highlights from ReadwiseAPI. We only received 100 highlights yet.
 - [x] Save/Load fetched highlights in CoreData
+- [ ] make icon for status item
+- [ ] add highlights management pane in Settings
