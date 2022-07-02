@@ -143,6 +143,7 @@ class HighlightViewVM: ObservableObject {
                 if let storeItem = storedItems.first {
                     //TODO: .. do something here
                     print("already exists")
+                    return
                 } else { // if not exists
                     let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "HighlightItemDataModel", into: viewContext) as! HighlightItemDataModel
                     itemToSave.id = fetchedItem.id
@@ -205,6 +206,7 @@ class HighlightViewVM: ObservableObject {
                 if let storeItem = storedItems.first {
                     //TODO: .. do something here
                     print("already exists")
+                    return
                 } else { // if not exists
                     
                     let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "BookItemDataModel", into: viewContext) as! BookItemDataModel
