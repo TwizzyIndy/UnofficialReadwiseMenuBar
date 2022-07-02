@@ -176,9 +176,63 @@ class HighlightViewVM: ObservableObject {
             DispatchQueue.main.async {
                 self.books_list = booksList
                 print("\(#function) ok")
+                
+                self.saveBooksListToDB()
             }
         } catch {
             print("\(#function) error")
+        }
+    }
+    
+    func saveBooksListToDB() {
+        // save to CoreData
+        guard let viewContext = self.viewContext,
+        let books_list = self.books_list else {
+            return
+        }
+        
+        books_list.results.forEach({ fetchedItem in
+            // Make FetchRequest from CoreData
+            let request: NSFetchRequest<BookItemDataModel> = BookItemDataModel.fetchRequest()
+            
+            // only matched result with fetchedItem's id
+            request.predicate = NSPredicate(format: "id == %lld", fetchedItem.id)
+            
+            do {
+                let storedItems = try viewContext.fetch(request)
+                
+                // if already exists
+                if let storeItem = storedItems.first {
+                    //TODO: .. do something here
+                    print("already exists")
+                } else { // if not exists
+                    
+                    let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "BookItemDataModel", into: viewContext) as! BookItemDataModel
+                    
+                    itemToSave.id = fetchedItem.id
+                    itemToSave.updated_at = fetchedItem.updated ?? ""
+                    itemToSave.tags = fetchedItem.tags as NSObject?
+                    itemToSave.asin = fetchedItem.asin ?? ""
+                    itemToSave.author = fetchedItem.author ?? ""
+                    itemToSave.category = fetchedItem.category ?? ""
+                    itemToSave.cover_image_url = fetchedItem.cover_image_url ?? ""
+                    itemToSave.highlights_url = fetchedItem.highlights_url ?? ""
+                    itemToSave.num_highlights = Int32(fetchedItem.num_highlights ?? 0)
+                    itemToSave.source = fetchedItem.source ?? ""
+                    itemToSave.source_url = fetchedItem.source_url ?? ""
+                    itemToSave.last_highlight_at = fetchedItem.last_highlight_at ?? ""
+                    itemToSave.title = fetchedItem.title ?? ""
+                    
+                }
+            } catch {
+                print("failed to fetch book list items")
+            }
+        })
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("failed to save highlight items to db")
         }
     }
     
