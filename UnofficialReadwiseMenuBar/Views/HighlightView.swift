@@ -86,6 +86,18 @@ struct HighlightView: View {
                                     
                                 })
                                 .buttonStyle(.borderless)
+
+                                
+                                // quit button
+                                Button(action: {
+                                    NSApp.terminate(self)
+                                }, label: {
+                                    Image(systemName: "x.circle")
+                                        .resizable()
+                                        .frame(width: 20, height: 20, alignment: .center)
+                                        .foregroundColor(.white)
+                                })
+                                .buttonStyle(.borderless)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
                             }
                             
