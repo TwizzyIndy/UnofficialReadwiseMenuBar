@@ -50,6 +50,17 @@ struct HighlightView: View {
                             HStack {
                                 Spacer()
                                 
+                                // force reload button
+                                Button(action: {
+                                    // TODO: reload all highlight here
+                                }, label: {
+                                    Image(systemName: "arrow.counterclockwise.circle")
+                                        .resizable()
+                                        .frame(width: 20, height: 20, alignment: .center)
+                                        .foregroundColor(.white)
+                                })
+                                .buttonStyle(.borderless)
+                                
                                 // settings button
                                 Button(action: {
                                     // show preferences window
@@ -135,10 +146,11 @@ struct HighlightView: View {
                                     bookTitle = self.highlightVM.book_title
                                     
                                 }, label: {
-                                    Text(" ")
+                                    Text(">")
                                 })
                                 .buttonStyle(.borderless)
                                 .frame(width: 50, height: 50, alignment: .center)
+                                .foregroundColor(.clear)
                             }
                         }
                             .onAppear()
