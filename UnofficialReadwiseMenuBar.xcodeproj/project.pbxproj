@@ -18,7 +18,6 @@
 		B6CF923828646869009F9E51 /* HighlightListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF923728646869009F9E51 /* HighlightListModel.swift */; };
 		B6CF923928646869009F9E51 /* HighlightListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF923728646869009F9E51 /* HighlightListModel.swift */; };
 		B6D7F46128644232005C3994 /* UnofficialReadwiseMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F46028644232005C3994 /* UnofficialReadwiseMenuBarApp.swift */; };
-		B6D7F46328644232005C3994 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F46228644232005C3994 /* ContentView.swift */; };
 		B6D7F46528644233005C3994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D7F46428644233005C3994 /* Assets.xcassets */; };
 		B6D7F46828644233005C3994 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D7F46728644233005C3994 /* Preview Assets.xcassets */; };
 		B6D7F46A28644233005C3994 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F46928644233005C3994 /* Persistence.swift */; };
@@ -26,7 +25,6 @@
 		B6D7F47828644233005C3994 /* UnofficialReadwiseMenuBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F47728644233005C3994 /* UnofficialReadwiseMenuBarTests.swift */; };
 		B6D7F48228644233005C3994 /* UnofficialReadwiseMenuBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F48128644233005C3994 /* UnofficialReadwiseMenuBarUITests.swift */; };
 		B6D7F48428644233005C3994 /* UnofficialReadwiseMenuBarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F48328644233005C3994 /* UnofficialReadwiseMenuBarUITestsLaunchTests.swift */; };
-		B6D7F491286444BC005C3994 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F490286444BC005C3994 /* MainMenu.swift */; };
 		B6D7F4942864462E005C3994 /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F4932864462E005C3994 /* HighlightView.swift */; };
 		B6D7F49728644696005C3994 /* HighlightViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49628644696005C3994 /* HighlightViewVM.swift */; };
 		B6D7F49828644696005C3994 /* HighlightViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F49628644696005C3994 /* HighlightViewVM.swift */; };
@@ -56,12 +54,12 @@
 		B61F369928683252009B76E1 /* ReadwiseConfigSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadwiseConfigSettingView.swift; sourceTree = "<group>"; };
 		B643F5D328683EA300E37479 /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
 		B643F5D5286840FB00E37479 /* ReadwiseConfigSettingViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadwiseConfigSettingViewVM.swift; sourceTree = "<group>"; };
+		B64C3D7E2870285F004A3509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B6737441286C1F560044CA7F /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		B6A636B12864880800ED980C /* BooksListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListModel.swift; sourceTree = "<group>"; };
 		B6CF923728646869009F9E51 /* HighlightListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightListModel.swift; sourceTree = "<group>"; };
 		B6D7F45D28644232005C3994 /* UnofficialReadwiseMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnofficialReadwiseMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D7F46028644232005C3994 /* UnofficialReadwiseMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnofficialReadwiseMenuBarApp.swift; sourceTree = "<group>"; };
-		B6D7F46228644232005C3994 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B6D7F46428644233005C3994 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6D7F46728644233005C3994 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B6D7F46928644233005C3994 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 		B6D7F47D28644233005C3994 /* UnofficialReadwiseMenuBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnofficialReadwiseMenuBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D7F48128644233005C3994 /* UnofficialReadwiseMenuBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnofficialReadwiseMenuBarUITests.swift; sourceTree = "<group>"; };
 		B6D7F48328644233005C3994 /* UnofficialReadwiseMenuBarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnofficialReadwiseMenuBarUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B6D7F490286444BC005C3994 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		B6D7F4932864462E005C3994 /* HighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
 		B6D7F49628644696005C3994 /* HighlightViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightViewVM.swift; sourceTree = "<group>"; };
 		B6D7F49A28644726005C3994 /* ReadwiseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadwiseAPI.swift; sourceTree = "<group>"; };
@@ -143,11 +140,10 @@
 				B6D7F49528644675005C3994 /* ViewModels */,
 				B6D7F492286445F9005C3994 /* Views */,
 				B6D7F46028644232005C3994 /* UnofficialReadwiseMenuBarApp.swift */,
-				B6D7F46228644232005C3994 /* ContentView.swift */,
-				B6D7F490286444BC005C3994 /* MainMenu.swift */,
 				B6D7F46428644233005C3994 /* Assets.xcassets */,
 				B6D7F46928644233005C3994 /* Persistence.swift */,
 				B6D7F46E28644233005C3994 /* UnofficialReadwiseMenuBar.entitlements */,
+				B64C3D7E2870285F004A3509 /* Info.plist */,
 				B6D7F46B28644233005C3994 /* UnofficialReadwiseMenuBar.xcdatamodeld */,
 				B6D7F46628644233005C3994 /* Preview Content */,
 			);
@@ -346,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B643F5D428683EA300E37479 /* StorageKeys.swift in Sources */,
-				B6D7F491286444BC005C3994 /* MainMenu.swift in Sources */,
 				B6D7F46D28644233005C3994 /* UnofficialReadwiseMenuBar.xcdatamodeld in Sources */,
 				B6A636B22864880800ED980C /* BooksListModel.swift in Sources */,
 				B6D7F49B28644726005C3994 /* ReadwiseAPI.swift in Sources */,
@@ -355,7 +350,6 @@
 				B61F369A28683252009B76E1 /* ReadwiseConfigSettingView.swift in Sources */,
 				B6D7F49728644696005C3994 /* HighlightViewVM.swift in Sources */,
 				B6D7F4942864462E005C3994 /* HighlightView.swift in Sources */,
-				B6D7F46328644232005C3994 /* ContentView.swift in Sources */,
 				B6D7F46128644232005C3994 /* UnofficialReadwiseMenuBarApp.swift in Sources */,
 				B6CF923828646869009F9E51 /* HighlightListModel.swift in Sources */,
 				B643F5D6286840FB00E37479 /* ReadwiseConfigSettingViewVM.swift in Sources */,
@@ -526,6 +520,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UnofficialReadwiseMenuBar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnofficialReadwiseMenuBar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -551,6 +546,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UnofficialReadwiseMenuBar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnofficialReadwiseMenuBar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

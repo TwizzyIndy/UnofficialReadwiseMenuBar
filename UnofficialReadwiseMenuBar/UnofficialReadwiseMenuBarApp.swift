@@ -14,11 +14,6 @@ struct UnofficialReadwiseMenuBarApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
-        
         Settings {
             SettingsView()
         }
@@ -30,8 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // The NSStatusBar manages a collection of status items displayed within a system-wide menu bar.
     lazy var statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
-    let menu = MainMenu()
     
     private var popOver: NSPopover!
     
