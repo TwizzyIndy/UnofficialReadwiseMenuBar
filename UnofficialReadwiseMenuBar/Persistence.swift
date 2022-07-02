@@ -31,6 +31,22 @@ struct PersistenceController {
             newHighlightItem.text = "The goal of this book is to change your perception about wealth and money. Believe that retirement at any age is possible. Believe that old age is not a prerequisite to wealth. Believe that a job is just as risky as a business. Believe that the stock market isn't a guaranteed path to riches. Believe that you can be retired just a few years from today."
             newHighlightItem.location = 234234
             newHighlightItem.url = "https://demo.com"
+            
+            // for book list data model
+            let newBooklistItem = BookItemDataModel(context: viewContext)
+            newBooklistItem.id = 34234
+            newBooklistItem.updated_at = ""
+            newBooklistItem.tags = nil
+            newBooklistItem.asin = "23423"
+            newBooklistItem.author = "The Author"
+            newBooklistItem.category = "self-help"
+            newBooklistItem.cover_image_url = "https://demo.com"
+            newBooklistItem.highlights_url = "https://demo.com"
+            newBooklistItem.num_highlights = Int32(233)
+            newBooklistItem.source = "https://demo.com"
+            newBooklistItem.source_url = "https://demo.com"
+            newBooklistItem.last_highlight_at = ""
+            newBooklistItem.title = "The book title"
         }
         do {
             try viewContext.save()
