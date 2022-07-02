@@ -1,5 +1,5 @@
 # The Unofficial Readwise Highlight Menu Bar App
-This is the unofficial Readwise Highlight Menu Bar for macOS which would fetch the saved highlights from your Readwise account and showing them on your mac desktop. I only made this for practise SwiftUI and it was my first ever SwiftUI app. Thanks everyone who made great menu bar apps and open-source them which described in References section.
+The unofficial Readwise Highlight Menu Bar for macOS. It would fetch the saved highlights from your Readwise account and show them on your mac desktop. I only made this to practice SwiftUI and it was my first ever SwiftUI app. Thanks, to everyone who made great menu bar apps and open sources which are described in the References section.
 
 ## Screenshot(s)
 ![](assets/scr_1.png)
