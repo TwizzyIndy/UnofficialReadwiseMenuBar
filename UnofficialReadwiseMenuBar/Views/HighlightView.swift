@@ -13,6 +13,8 @@ struct HighlightView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \HighlightItemDataModel.highlighted_at, ascending: true)],
                   animation: .default) var highlight_list_db: FetchedResults<HighlightItemDataModel>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \BookItemDataModel.last_highlight_at, ascending: true)],
+                  animation: .default) var books_list_db: FetchedResults<BookItemDataModel>
     
     //MARK: - View Model
     @ObservedObject private var highlightVM : HighlightViewVM
@@ -96,6 +98,7 @@ struct HighlightView: View {
                             }
                             
                             HStack {
+                                // Previous Button
                                 Button("<", action: {                                    
                                     if (!self.highlight_list_db.isEmpty)
                                     {
@@ -107,8 +110,17 @@ struct HighlightView: View {
                                         let prevItem = self.highlight_list_db[self.currentHighlightIndex - 1]
                                         
                                         highlight_text = prevItem.text ?? "N/A"
-                                        author = "N/A"
-                                        bookTitle = "N/A"
+                                        
+                                        // parse author and bookTitle
+                                        let filtered = self.books_list_db.filter { $0.id == prevItem.book_id }
+                                        if (filtered.isEmpty)
+                                        {
+                                            author = "N/A"
+                                            bookTitle = "N/A"
+                                        } else {
+                                            author = filtered.first?.author ?? "N/A"
+                                            bookTitle = filtered.first?.title ?? "N/A"
+                                        }
                                         
                                         self.currentHighlightIndex -= 1
                                         return
@@ -120,6 +132,7 @@ struct HighlightView: View {
                                 
                                 Spacer()
                                 
+                                // Next Button
                                 Button(action: {
                                     
                                     // get from Core Data first
@@ -135,8 +148,17 @@ struct HighlightView: View {
                                             }
                                             
                                             highlight_text = highlightItem.text ?? "N/A"
-                                            author = "N/A"
-                                            bookTitle = "N/A"
+                                            
+                                            // parse author and bookTitle
+                                            let filtered = self.books_list_db.filter { $0.id == highlightItem.book_id }
+                                            if (filtered.isEmpty)
+                                            {
+                                                author = "N/A"
+                                                bookTitle = "N/A"
+                                            } else {
+                                                author = filtered.first?.author ?? "N/A"
+                                                bookTitle = filtered.first?.title ?? "N/A"
+                                            }
                                             return
                                         }
                                     }
@@ -172,9 +194,17 @@ struct HighlightView: View {
                                         
                                         highlight_text = highlightItem.text ?? "N/A"
                                         
-                                        // TODO: need to parse author and bookTitle
-                                        author = "N/A"
-                                        bookTitle = "N/A"
+                                        // parse author and bookTitle
+                                        let filtered = self.books_list_db.filter { $0.id == highlightItem.book_id }
+                                        if (filtered.isEmpty)
+                                        {
+                                            author = "N/A"
+                                            bookTitle = "N/A"
+                                        } else {
+                                            author = filtered.first?.author ?? "N/A"
+                                            bookTitle = filtered.first?.title ?? "N/A"
+                                        }
+                                        
                                         return
                                     }
                                 }

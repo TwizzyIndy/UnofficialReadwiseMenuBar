@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BookItemDataModel" representedClassName="BookItemDataModel" syncable="YES" codeGenerationType="class">
+        <attribute name="asin" optional="YES" attributeType="String"/>
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="cover_image_url" optional="YES" attributeType="String"/>
+        <attribute name="highlights_url" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="last_highlight_at" optional="YES" attributeType="String"/>
+        <attribute name="num_highlights" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
+        <attribute name="source_url" optional="YES" attributeType="String"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updated_at" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="HighlightItemDataModel" representedClassName="HighlightItemDataModel" syncable="YES" codeGenerationType="class">
         <attribute name="book_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="color" optional="YES" attributeType="String"/>
@@ -17,7 +32,8 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="HighlightItemDataModel" positionX="-63" positionY="-9" width="128" height="194"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="BookItemDataModel" positionX="-63" positionY="72" width="128" height="224"/>
     </elements>
 </model>
