@@ -11,7 +11,7 @@
         <attribute name="num_highlights" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="source" optional="YES" attributeType="String"/>
         <attribute name="source_url" optional="YES" attributeType="String"/>
-        <attribute name="tags" optional="YES" attributeType="Transformable"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[NSObject]"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="updated_at" optional="YES" attributeType="String"/>
     </entity>
@@ -23,7 +23,7 @@
         <attribute name="location" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="location_type" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
-        <attribute name="tags" optional="YES" attributeType="Transformable"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[NSObject]"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <attribute name="updated_at" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
@@ -32,8 +32,8 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
+        <element name="BookItemDataModel" positionX="-63" positionY="72" width="128" height="224"/>
         <element name="HighlightItemDataModel" positionX="-63" positionY="-9" width="128" height="194"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="BookItemDataModel" positionX="-63" positionY="72" width="128" height="224"/>
     </elements>
 </model>
