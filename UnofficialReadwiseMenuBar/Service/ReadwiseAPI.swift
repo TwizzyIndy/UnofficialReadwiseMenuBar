@@ -141,6 +141,73 @@ class ReadwiseAPI {
         return try JSONDecoder().decode(HighlightListModel.self, from: data)
     }
     
+    func getHighlightsListAll(token: String) async throws -> [HighlightListModel] {
+        guard let highlightListUrl = URL(string: "https://readwise.io/api/v2/highlights/") else { throw ResponseError.BadURL }
+        
+        var result = [HighlightListModel]()
+        
+        let firstHighlightList = try await getHighlightsListWithURL(token: token, url: highlightListUrl)
+        
+        // append first item
+        result.append(firstHighlightList)
+        
+        var nextUrlString : String? = nil
+        
+        if let next = firstHighlightList.next {
+            guard let nextUrl = URL(string: next) else { throw ResponseError.BadURL }
+            let nextItem = try await getHighlightsListWithURL(token: token, url: nextUrl)
+            
+            // ok, add second one here
+            result.append(nextItem)
+            
+            if nextItem.next != nil {
+                nextUrlString = nextItem.next
+                
+                repeat {
+                    guard let nextUrl = URL(string: nextUrlString ?? "") else { throw ResponseError.BadURL }
+                    let nextItem = try await getHighlightsListWithURL(token: token, url: nextUrl)
+                    
+                    result.append(nextItem)
+                    nextUrlString = nextItem.next
+                    
+                } while nextUrlString != nil
+            }
+        }
+        
+        return result
+    }
+    private func getHighlightsListWithURL(token: String, url: URL) async throws -> HighlightListModel {
+        
+        let highlightListUrl = url
+        
+        var request = URLRequest(url:highlightListUrl)
+        request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 || httpResponse.statusCode == 429 else {
+            throw ResponseError.Error
+        }
+        
+        // handle request rate limits based on statusCode
+
+        // statusCode 429 is Too Many Requests
+        if httpResponse.statusCode == 429 {
+            let retryAfterString = httpResponse.value(forHTTPHeaderField: "Retry-After") ?? "60"
+            let retryAfter = Int(retryAfterString) ?? 60
+            
+            print("Need to wait for \(retryAfter) seconds")
+            
+            try? await Task.sleep(nanoseconds: UInt64(retryAfter) * 1_000_000_000)
+            
+            // run again ?
+            return try await getHighlightsListWithURL(token: token, url: url)
+        }
+        
+        let responseJson = try JSONDecoder().decode(HighlightListModel.self, from: data)
+        return responseJson
+    }
     func getBooksList(token: String) async throws -> BooksListModel {
         guard let bookDetailUrl = URL(string: "https://readwise.io/api/v2/books/") else { throw ResponseError.BadURL }
         
